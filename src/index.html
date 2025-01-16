@@ -7,22 +7,26 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <main class="bg-[url('/images/background_image.jpg')] bg-cover h-screen w-screen">
+    <main class="flex flex-col bg-[url('/images/background_image.jpg')] bg-cover h-screen w-screen">
       <header>
-        <h1 class="font-bold">Welcome to my TypeScript Project!</h1>
+        <h1 class="font-bold text-3xl text-pink-950 mt-6 text-center">Welcome to my TypeScript Project!</h1>
       </header>
-      <div>
-        <img class="max-wd-md rounded-lg" src="images/forest.jpg" alt="Forest" />
-        <div>
-          <h2>What is TypeScript?</h2>
-          <p>
+      <div class="mx-auto lg:flex">
+        <img class="max-w-md rounded-2xl mr-2 mt-8" src="images/forest.jpg" alt="Forest" />
+        <div class="rounded-2xl bg-white p-4 max-w-xl ml-2 mt-8">
+          <h2 class="text-lg text-pink-600 font-bold">What is TypeScript?</h2>
+          <p class="text-lg text-pink-950">
             TypeScript is a typed superset of JavaScript that compiles to plain
             JavaScript. It offers advanced autocompletion, navigation, and
             refactoring features, and is used by many developers to improve their
             coding experience.
           </p>
+          <button class="bg-pink-300 font-medium text-pink-950 rounded-md max-w-32 mt-4 px-4 py-2">Get Started!</button>
         </div>
       </div>
+      <footer class="mt-auto mb-4 text-center text-pink-950 font-medium">
+        <p>&copy; <a href="https://github.com/morganharris39">Morgan Harris</a> &bull; 2025</p>
+      </footer>
     </main>
   </body>
 </html>

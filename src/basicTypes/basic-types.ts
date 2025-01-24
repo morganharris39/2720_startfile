@@ -148,6 +148,13 @@ function error(message: string): never {
     throw new Error(message);
 }
 
+// Call the error function to use its value
+try {
+    error("This is an error");
+} catch (e) {
+    console.log(e.message); // Output: This is an error
+}
+
 //------------------ Unknown ------------------//
 
 let notKnown: unknown = 4;

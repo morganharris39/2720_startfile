@@ -152,7 +152,9 @@ function error(message: string): never {
 try {
     error("This is an error");
 } catch (e) {
-    console.log(e.message); // Output: This is an error
+    if (e instanceof Error) {
+        console.log(e.message); // Output: This is an error
+    }
 }
 
 //------------------ Unknown ------------------//

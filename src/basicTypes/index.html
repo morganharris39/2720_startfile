@@ -1,47 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="forest">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../index.css" rel="stylesheet"/>
     <script src="basic-types.ts" defer type="module"></script>
-    <title>Document</title>
+    <title>Basic TypeScript Types</title>
 </head>
 <body class="flex flex-col h-screen">
-    <header class="bg-green-300">
-        <h1 class="text-4xl">Basic Typscript Types</h1>
+    <header class="navbar bg-base-300">
+        <h1 class="text-3xl ml-2">Basic Typscript Types</h1>
     </header>
-    <main class="flex bg-green-100 h-full">
-        <nav class="max-w-40 h-full bg-green-200">
-            <ul class="flex flex-col justify-center">
+    <main class="flex h-full">
+        <nav class="h-full w-70">
+            <ul class="menu bg-base-200 w-56 h-full">
                 <li>
-                    <button class="w-32 hover:bg-green-500 rounded-lg">Basic Types</button>
+                    <button class="">Basic Types</button>
                 </li>
                 <li>
-                    <button class="w-32 hover:bg-green-500 rounded-lg">Array Types</button>
+                    <button class="">Array Types</button>
                 </li>
                 <li>
-                    <button class="w-32 hover:bg-green-500 rounded-lg">Special Types</button>
+                    <button class="">Special Types</button>
                 </li>
             </ul>
         </nav>
-        <div class="bg-blue-100 w-full">
-            <h3>Card Title</h3>
-            <p>Concept Explanation</p>
-            <div>
-                <h4>Code Example</h4>
-                <pre>
-                    <code>
-const myName: string = 'Morgan';
-const myAge: number = 21;
-const hasHobbies: boolean = true;
-                    </code>
-                </pre>
+        <div class="m-8">
+            <div class="mockup-code">
+                <pre data-prefix="$"><code>const myName: string = 'Morgan';</code>
+                <pre data-prefix="$"><code>const myAge: number = 21;</code>
+                <pre data-prefix="$"><code>const hasHobbies: boolean = true;</code>
             </div>
         </div>
     </main>
-    <footer class="mt-auto mb-4 text-center">
-        <p>&copy; <a href="https://github.com/morganharris39">Morgan Harris</a> &bull; 2025</p>
+    <footer class="footer footer-center bg-base-300 text-base-content p-4">
+        <aside>
+            <p>&copy; <a href="https://github.com/morganharris39">Morgan Harris</a> &bull; 2025</p>
+        </aside>
     </footer>
 </body>
 </html>

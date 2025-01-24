@@ -1,27 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="forest">
   <head>
     <meta charset="UTF-8" />
     <link href="index.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>TypeScript Project</title>
   </head>
   <body>
     <main class="flex flex-col bg-[url('/images/background_image.jpg')] bg-cover h-screen w-screen">
-      <header>
-        <h1 class="font-bold text-3xl text-pink-950 mt-6 text-center">Welcome to my TypeScript Project!</h1>
-      </header>
-      <div class="mx-auto lg:flex">
-        <img class="max-w-md rounded-2xl mr-2 mt-8" src="images/forest.jpg" alt="Forest" />
-        <div class="rounded-2xl bg-white p-4 max-w-xl ml-2 mt-8">
-          <h2 class="text-lg text-pink-600 font-bold">What is TypeScript?</h2>
-          <p class="text-lg text-pink-950">
-            TypeScript is a typed superset of JavaScript that compiles to plain
-            JavaScript. It offers advanced autocompletion, navigation, and
-            refactoring features, and is used by many developers to improve their
-            coding experience.
-          </p>
-          <button class="bg-pink-300 font-medium text-pink-950 rounded-md max-w-32 mt-4 px-4 py-2">Get Started!</button>
+      <div class="hero bg-base-200 min-h-screen">
+        <div class="hero-content flex-col lg:flex-row">
+          <img class="max-w-sm rounded-lg shadow-2xl" src="images/forest.jpg" alt="Forest" />
+          <div>
+            <h1 class="text-5xl font-bold">Welcome to my TypeScript Project!</h1>
+            <p class="py-6">
+              TypeScript is a typed superset of JavaScript that compiles to plain
+              JavaScript. It offers advanced autocompletion, navigation, and
+              refactoring features, and is used by many developers to improve their
+              coding experience.
+            </p>
+            <a href="basicTypes/index.html">
+              <button class="btn btn-primary">Get Started!</button>
+            </a>
+          </div>
         </div>
       </div>
       <footer class="mt-auto mb-4 text-center text-pink-950 font-medium">

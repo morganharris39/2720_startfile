@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../index.css" rel="stylesheet"/>
-    <script src="basic-types.ts" defer type="module"></script>
+    <script src="index.ts" defer type="module"></script>
     <title>Basic TypeScript Types</title>
 </head>
 <body class="flex flex-col h-screen">
@@ -26,10 +26,16 @@
             </ul>
         </nav>
         <div class="m-8">
+            <h2 class="cardTitle"></h2>
+            <p class="cardExplanation"></p>
             <div class="mockup-code">
-                <pre data-prefix="$"><code>const myName: string = 'Morgan';</code>
-                <pre data-prefix="$"><code>const myAge: number = 21;</code>
-                <pre data-prefix="$"><code>const hasHobbies: boolean = true;</code>
+                <pre>
+                    <code id="codeCard">
+const myName: string = 'Morgan';  
+const myAge: number = 21;  
+const hasHobbies: boolean = true;                    
+                    </code>
+                </pre>
             </div>
         </div>
     </main>

@@ -1,4 +1,15 @@
-console.log('Hello World, from basic-types.ts');
+export function basicTypesExample() {
+    return {
+        title: 'Basic Types',
+        explanation: 'Learn about basic types in TypeScript',
+        code: `
+let isDone: boolean = false;
+console.log(isDone); // Output: false
+
+isDone = true;
+console.log(isDone); // Output: true
+        `}
+}
 
 /* Basic Types in Typescript 
 

@@ -1,277 +1,243 @@
 export function basicTypesExample() {
     return {
-        title: 'Basic Types',
-        explanation: 'This section covers basic types in TypeScript',
+        title: "Basic Types in TypeScript",
+        explanation: "This section covers basic types in TypeScript.",
         code: `
-//------------------ Boolean ------------------//
+// Example of number type
+let decimal: number = 10;           // Regular decimal
+let hex: number = 0xf00d;          // Hexadecimal
+let binary: number = 0b1010;       // Binary
+let octal: number = 0o744;         // Octal
+let floating: number = 3.14;       // Floating point
+let negative: number = -42;        // Negative number
 
-let isDone: boolean = false;
-console.log(isDone); // Output: false
+// Basic arithmetic
+let sum: number = decimal + floating;
+let product: number = decimal * 2;
 
-isDone = true;
-console.log(isDone); // Output: true
+// Example of string type
+let firstName: string = "Thor";              // Double quotes
+let lastName: string = 'Anderson';           // Single quotes
+let fullName: string = firstName + " (middle name) " + lastName;  // String concatenation
 
-//------------------ Number ------------------//
+// Template literal (backtick)
+let greeting: string = \`Hello, \${fullName}!\`; // String interpolation
+let multiLine: string = \`
+This is a multi-line
+string using template
+    literals\`\;
 
-let decimal: number = 6;
-console.log(decimal); // Output: 6
-
-let hex: number = 0xf00d;
-console.log(hex); // Output: 61453
-
-let binary: number = 0b1010;
-console.log(binary); // Output: 10
-
-let octal: number = 0o744;
-console.log(octal); // Output: 484
-
-let floating: number = 3.14;
-console.log(floating); // Output: 3.14
-
-let negative: number = -42;
-console.log(negative); // Output: -42
-
-    `}
+// String length and methods
+let nameLength: number = fullName.length;    // String property
+let upperName: string = fullName.toUpperCase(); // String method
+`}
 }
 
-/* Basic Types in Typescript 
-
-- Boolean
-- Number
-- Object
-- String
-- Array
-- Tuple
-- Enum
-- Any
-- Void
-- Null and Undefined
-- Never
-- Unknown
-
-*/
-
-//------------------ Boolean ------------------//
-
-let isDone: boolean = false;
-console.log(isDone); // Output: false
-
-isDone = true;
-console.log(isDone); // Output: true
-
-// Key points:
-// - Represents true/false values
-// - Used in conditional statements
-// - Default type for logical operations
-
-//------------------ Number ------------------//
-
-let decimal: number = 6;
-console.log(decimal); // Output: 6
-
-let hex: number = 0xf00d;
-console.log(hex); // Output: 61453
-
-let binary: number = 0b1010;
-console.log(binary); // Output: 10
-
-let octal: number = 0o744;
-console.log(octal); // Output: 484
-
-let floating: number = 3.14;
-console.log(floating); // Output: 3.14
-
-let negative: number = -42;
-console.log(negative); // Output: -42
-
-// Key points:
-// - All numbers are floating point values
-// - Supports decimal, hex, binary, octal
-// - NaN and Infinity are valid number values
-
-//------------------ Object ------------------//
-
-let person: { name: string; age: number } = {
-    name: "John",
-    age: 30
-};
-console.log(person); // Output: { name: 'John', age: 30 }
-
-person.name = "Jane";
-person.age = 25;
-console.log(person); // Output: { name: 'Jane', age: 25 }
-
-// Key points:
-// - Represents non-primitive types
-// - Use interfaces for better type definition
-// - Can be generic
-
-//------------------ String ------------------//
-
-let color: string = "blue";
-console.log(color); // Output: blue
-
-color = 'red';
-console.log(color); // Output: red
-
-let fullName: string = `John Doe`;
-console.log(fullName); // Output: John Doe
-
-let sentence: string = `Hello, my name is ${fullName}.`;
-console.log(sentence); // Output: Hello, my name is John Doe.
-
-// Key points:
-// - Supports single/double quotes and template literals
-// - UTF-16 text
-// - String interpolation with backticks
-
-//------------------ Array ------------------//
-
-let list: number[] = [1, 2, 3];
-console.log(list); // Output: [1, 2, 3]
-
-let colors: string[] = ["red", "green", "blue"];
-console.log(colors); // Output: ["red", "green", "blue"]
-
-let mixedArray: (number | string)[] = [1, "two", 3];
-console.log(mixedArray); // Output: [1, "two", 3]
-
-// Key points:
-// - Two ways to declare: T[] or Array<T>
-// - Type-safe array operations
-// - Can be readonly
-
-//------------------ Tuple ------------------//
-
-let tuple: [string, number];
-tuple = ["hello", 10]; // OK
-console.log(tuple); // Output: ["hello", 10]
-
-// Accessing tuple elements
-console.log(tuple[0]); // Output: hello
-console.log(tuple[1]); // Output: 10
-
-// Updating tuple elements
-tuple[0] = "world";
-tuple[1] = 20;
-console.log(tuple); // Output: ["world", 20]
-
-// Key points:
-// - Fixed-length array with known types
-// - Order matters
-// - Strict type checking for each position
-
-//------------------ Enum ------------------//
-
-enum Color {
-    Red,
-    Green,
-    Blue
-}
-let c: Color = Color.Green;
-console.log(c); // Output: 1
-
-enum Direction {
-    Up = 1,
-    Down,
-    Left,
-    Right
-}
-let d: Direction = Direction.Left;
-console.log(d); // Output: 3
-
-// Key points:
-// - Named constants
-// - Numeric or string-based
-// - Can have computed values
-
-//------------------ Any ------------------//
-
-let notSure: any = 4;
-console.log(notSure); // Output: 4
-
-notSure = "maybe a string instead";
-console.log(notSure); // Output: maybe a string instead
-
-notSure = false;
-console.log(notSure); // Output: false
-
-let anyArray: any[] = [1, true, "free"];
-console.log(anyArray); // Output: [1, true, "free"]
-
-// Key points:
-// - Opts out of type checking
-// - Use sparingly
-// - Useful for gradual typing
-
-//------------------ Void ------------------//
-
-function warnUser(): void {
-    console.log("This is a warning message");
-}
-warnUser(); // Output: This is a warning message
-
-// Key points:
-// - Absence of any type
-// - Used for functions with no return value
-// - Can only be assigned undefined or null
-
-//------------------ Null and Undefined ------------------//
-
-let u: undefined = undefined;
-console.log(u); // Output: undefined
-
-let n: null = null;
-console.log(n); // Output: null
-
-// Basic nullish coalescing
-const userInput = null;
-const defaultValue = "default";
-const result = userInput ?? defaultValue; // returns "default"
-console.log(result); // Output: default
-
-// Key points:
-// - Subtypes of all other types by default
-// - Use strictNullChecks for better safety
-// - Use union types with null
-
-//------------------ Never ------------------//
-
-function error(message: string): never {
-    throw new Error(message);
-}
-
-// Call the error function to use its value
-try {
-    error("This is an error");
-} catch (e) {
-    if (e instanceof Error) {
-        console.log(e.message); // Output: This is an error
+export function arrayTypesExample() {
+    return {
+        title: "Array Types in TypeScript",
+        explanation: "This section covers array types in TypeScript.",
+        code: `// Example of array type`
     }
 }
 
-// Key points:
-// - Represents values that never occur
-// - Used for functions that never return
-// - Used in exhaustive type checking
-
-//------------------ Unknown ------------------//
-
-let notKnown: unknown = 4;
-console.log(notKnown); // Output: 4
-
-notSure = "maybe a string instead";
-console.log(notSure); // Output: maybe a string instead
-
-notSure = false;
-console.log(notSure); // Output: false
-
-// Type checking is required before using unknown type
-if (typeof notSure === "string") {
-    console.log(notSure.toUpperCase()); // Output: MAYBE A STRING INSTEAD
+export function specialTypesExample() {
+    return {
+        title: "Special Types in TypeScript",
+        explanation: "This section covers special types in TypeScript.",
+        code: `// Example of special types`
+    }
 }
 
-// Key points:
-// - Type-safe alternative to any
-// - Requires type checking before use
-// - More restrictive than any
+/* Basic types in TypeScript 
+ - number
+    - string
+    - boolean
+    - object
+    - array
+    - tuple
+    - enum
+    - any
+    - void
+    - null and undefined
+    - never
+    - unknown
+*/
+
+// Example of number type
+let decimal: number = 10;           // Regular decimal
+let hex: number = 0xf00d;          // Hexadecimal
+let binary: number = 0b1010;       // Binary
+let octal: number = 0o744;         // Octal
+let floating: number = 3.14;       // Floating point
+let negative: number = -42;        // Negative number
+
+// Basic arithmetic
+let sum: number = decimal + floating;
+let product: number = decimal * 2;
+
+/* ------------------------------------------------------------*/
+
+// Example of string type
+let firstName: string = "Thor";              // Double quotes
+let lastName: string = 'Anderson';           // Single quotes
+let fullName: string = firstName + " (middle name) " + lastName;  // String concatenation
+
+// Template literal (backtick)
+let greeting: string = `Hello, ${fullName}!`; // String interpolation
+let multiLine: string = `
+    This is a multi-line
+    string using template
+    literals`;
+
+// String length and methods
+let nameLength: number = fullName.length;    // String property
+let upperName: string = fullName.toUpperCase(); // String method
+
+/* ------------------------------------------------------------*/
+
+// Example of boolean type
+let isDone: boolean = false;        // Boolean declaration
+let isActive: boolean = true;       // Another boolean
+let isComplete: boolean = isDone && isActive;  // Logical AND
+let isValid: boolean = isDone || isActive;     // Logical OR
+let isReady: boolean = !isDone;               // Logical NOT
+
+/* ------------------------------------------------------------*/
+
+// Example of object type
+// Simple object
+let user: object = {
+    name: "Thor",
+    age: 30,
+    isActive: true,
+    interests: ["coding", "reading"],
+};
+
+// Using interface for better type checking
+interface Person {
+    name: string;
+    age: number;
+    email?: string;  // Optional property
+}
+
+// Object with interface
+let employee: Person = {
+    name: "Anderson",
+    age: 25,
+    email: "anderson@example.com",
+};
+
+/* ------------------------------------------------------------*/
+
+// Example of array type
+let numbers: number[] = [1, 2, 3, 4, 5];           // Number array
+let names: string[] = ["Thor", "Loki", "Odin"];    // String array
+
+// Adding elements (type-safe)
+numbers.push(6);                // OK
+// numbers.push("seven");       // Error: Argument of type 'string' is not assignable to parameter of type 'number'
+
+// Accessing elements
+let firstNumber: number = numbers[0];  // OK
+// let firstString: string = numbers[0]; // Error: Type 'number' is not assignable to type 'string'
+
+// Array methods
+let arrayLength: number = names.length;  // OK
+
+/* ------------------------------------------------------------*/
+
+// Example of tuple type
+let person: [string, number] = ["Thor", 30];      // Declare tuple with string and number
+let worker: [string, number, boolean] = ["Anderson", 25, true];  // Tuple with 3 elements
+
+// Accessing tuple elements
+let empName: string = worker[0];    // First element (string)
+let empAge: number = worker[1];     // Second element (number)
+let isWorking: boolean = worker[2];   // Third element (boolean)
+
+
+/* ------------------------------------------------------------*/
+
+// Example of enum type
+// 1. Basic numeric enum for game status
+enum GameStatus {
+    Playing,     // 0
+    Paused,      // 1
+    GameOver,    // 2
+    Victory      // 3
+}
+
+/* Enums provide a way to define a set of named constants, making your code more readable and maintainable.
+Enums in TypeScript are a way to define a set of named constants. They can be used to create a collection of related values that can be numeric or string-based. Enums make it easier to document intent or create a set of distinct cases. */
+
+// Example of any type
+// 1. Basic any usage
+let dynamicValue: any = 4;
+dynamicValue = "hello";    // OK
+dynamicValue = true;       // OK
+dynamicValue = [1, 2, 3];  // OK
+
+// Example of void type
+// 1. Basic void function
+function logMessage(message: string): void {
+    console.log(message);
+    // No return statement needed
+}
+
+// 2. Void in arrow functions
+const printName = (name: string): void => {
+    console.log(`Hello, ${name}`);
+}
+
+// Example of null and undefined types
+
+
+// 4. Null checking patterns
+function processValue(value: string | null | undefined): string {
+    // Nullish coalescing
+    const safeValue = value ?? "default";
+    return safeValue;
+}
+
+/* 
+null represents an intentional absence of value.
+undefined represents an uninitialized variable.
+Use union types (| null | undefined) for variables that can be null or undefined.
+Optional parameters and properties (?) can be undefined.
+Use nullish coalescing (??) and optional chaining (?.) for safe access and default values. 
+*/
+
+// Example of never type
+
+// Basic usage in functions
+function throwError(message: string): never {
+    throw new Error(message);
+}
+
+function infiniteLoop(): never {
+    while (true) {
+        // Infinite loop, never returns
+    }
+}
+
+/* never represents values that never occur.
+Used for functions that never return (e.g., throw errors or infinite loops).
+Useful for exhaustive type checking in switch statements.
+Helps catch errors at compile time by ensuring all cases are handled. */
+
+// Example of unknown type
+let userInput: unknown;
+userInput = 5; // OK
+userInput = "hello"; // OK
+
+// Must check type before using unknown
+let strLength: number;
+if (typeof userInput === "string") {
+    strLength = userInput.length; // OK - type is checked
+}
+
+userInput = "Thor";
+if (typeof userInput === "string") {
+    console.log(`User input length: ${userInput.length}`); // Safe to access
+}

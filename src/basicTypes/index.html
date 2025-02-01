@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../index.css" rel="stylesheet"/>
+    <link href="../styles/code-color.css" rel="stylesheet"/>
     <script src="index.ts" defer type="module"></script>
     <title>Basic TypeScript Types</title>
 </head>
@@ -15,21 +16,21 @@
         <nav class="h-full w-70">
             <ul class="menu bg-base-200 w-56 h-full">
                 <li>
-                    <button class="">Basic Types</button>
+                    <button id="basicTypesButton">Basic Types</button>
                 </li>
                 <li>
-                    <button class="">Array Types</button>
+                    <button id="arrayTypesButton">Array Types</button>
                 </li>
                 <li>
-                    <button class="">Special Types</button>
+                    <button id="specialTypesButton">Special Types</button>
                 </li>
             </ul>
         </nav>
-        <div class="bg-base-200 shadow-xl m-4 rounded-lg">
-            <div class="card-body flex-grow-0">
-                <h2 id="cardTitle" class="text-2xl">Code Example</h2>
-                <p id="cardExplanation" class="mb-2"></p>
-                <div class="mockup-code">
+        <div class="ml-8 mt-4">
+            <div>
+                <h2 id="cardTitle" class="text-2xl mb-4">Code Example</h2>
+                <p id="cardExplanation" class="mb-4"></p>
+                <div class="mockup-code bg-slate-800">
                     <pre class="ml-4">
                         <code id="cardCode">
 const myName: string = 'Morgan';

@@ -1,14 +1,37 @@
 export function basicTypesExample() {
     return {
         title: 'Basic Types',
-        explanation: 'Learn about basic types in TypeScript',
+        explanation: 'This section covers basic types in TypeScript',
         code: `
+//------------------ Boolean ------------------//
+
 let isDone: boolean = false;
 console.log(isDone); // Output: false
 
 isDone = true;
 console.log(isDone); // Output: true
-        `}
+
+//------------------ Number ------------------//
+
+let decimal: number = 6;
+console.log(decimal); // Output: 6
+
+let hex: number = 0xf00d;
+console.log(hex); // Output: 61453
+
+let binary: number = 0b1010;
+console.log(binary); // Output: 10
+
+let octal: number = 0o744;
+console.log(octal); // Output: 484
+
+let floating: number = 3.14;
+console.log(floating); // Output: 3.14
+
+let negative: number = -42;
+console.log(negative); // Output: -42
+
+    `}
 }
 
 /* Basic Types in Typescript 
@@ -55,8 +78,11 @@ console.log(binary); // Output: 10
 let octal: number = 0o744;
 console.log(octal); // Output: 484
 
-let float: number = 3.14;
-console.log(float); // Output: 3.14
+let floating: number = 3.14;
+console.log(floating); // Output: 3.14
+
+let negative: number = -42;
+console.log(negative); // Output: -42
 
 // Key points:
 // - All numbers are floating point values

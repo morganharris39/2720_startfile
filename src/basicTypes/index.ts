@@ -1,4 +1,4 @@
-import {basicTypesExample, arrayTypesExample, specialTypesExample} from './basic-types';
+import {basicTypesNumber, basicTypesString, arrayTypesExample, specialTypesExample} from '../examplesBasicTypes/examples';
 
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
@@ -33,7 +33,7 @@ function loadExample(exampleType: string) {
     let chosenExampleType
     switch (exampleType) {
         case "basic":
-            chosenExampleType = basicTypesExample()
+            chosenExampleType = basicTypesNumber()
             break;
         case "array":
             chosenExampleType = arrayTypesExample()
@@ -42,7 +42,7 @@ function loadExample(exampleType: string) {
             chosenExampleType = specialTypesExample()
             break;
         default:
-            chosenExampleType = basicTypesExample()
+            chosenExampleType = basicTypesNumber()
     }
     if (cardTitle && cardExplanation && cardCode) {
         cardTitle.textContent = chosenExampleType.title;

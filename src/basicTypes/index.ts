@@ -1,5 +1,17 @@
-import {basicTypesNumber, basicTypesString, arrayTypesExample, specialTypesExample} from '../examplesBasicTypes/examples';
-
+import {
+    basicTypesNumber,
+    basicTypesString,
+    basicTypesBoolean,
+    basicTypesObject,
+    arrayTypes,
+    arrayTypesTuple,
+    arrayTypesEnum,
+    specialTypesAny,
+    specialTypesVoid,
+    specialTypesNull,
+    specialTypesNever,
+    specialTypesUnknown, 
+} from '../examplesBasicTypes/examples';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
 
@@ -18,16 +30,19 @@ const cardCode = document.querySelector('#cardCode');
 
 // add event listeners to the buttons
 if (basicTypesButton) {
-    basicTypesButton.addEventListener("click", () => loadExample("basic"));
+    const examples = [basicTypesNumber(),basicTypesString(),basicTypesBoolean(),basicTypesObject()]
+    basicTypesButton.addEventListener("click", () => loadExamples(examples));
 }
 if (arrayTypesButton) {
-    arrayTypesButton.addEventListener("click", () => loadExample("array"))
+    const examples = [arrayTypes(),arrayTypesTuple(),arrayTypesEnum()]
+    arrayTypesButton.addEventListener("click", () => loadExamples(examples))
 }
 if (specialTypesButton) {
-    specialTypesButton.addEventListener("click", () => loadExample("special"))
+    const examples = [specialTypesAny(),specialTypesVoid(),specialTypesNull(),specialTypesNever(),specialTypesUnknown()]
+    specialTypesButton.addEventListener("click", () => loadExamples(examples))
 }
 
-// Generic function to load example content
+// have loadExample function load the imported example functions
 function loadExample(exampleType: string) {
     console.log(`Loading example content for ${exampleType} types`);
     let chosenExampleType
@@ -36,10 +51,10 @@ function loadExample(exampleType: string) {
             chosenExampleType = basicTypesNumber()
             break;
         case "array":
-            chosenExampleType = arrayTypesExample()
+            chosenExampleType = arrayTypes()
             break;
         case "special":
-            chosenExampleType = specialTypesExample()
+            chosenExampleType = specialTypesAny()
             break;
         default:
             chosenExampleType = basicTypesNumber()
@@ -47,12 +62,41 @@ function loadExample(exampleType: string) {
     if (cardTitle && cardExplanation && cardCode) {
         cardTitle.textContent = chosenExampleType.title;
         cardExplanation.textContent = chosenExampleType.explanation;
-        cardCode.innerHTML = hljs.highlight(
-            chosenExampleType.code,
+        cardCode.innerHTML = hljs.highlight(chosenExampleType.code,
             { language: 'typescript' }
           ).value
     }
 }
+
+// be able to load many examples passed in an array
+function loadExamples (examples: any[]) {
+    // gets a reference to the example card container
+    const container = document.querySelector("#examplesContainer")
+    if (!container) {
+        console.error("Could not find example.")
+        return
+    }
+
+    container.innerHTML = examples.map((example) => `
+<div class="card-body flex-grow-0">
+<h2 id="cardTitle" class="text-2xl mb-4">${example.title}</h2>
+<p id="cardExplanation" class="mb-4">${example.explanation}</p>
+<div class="mockup-code bg-slate-800">
+<pre class="ml-4">
+<code id="cardCode">${
+    hljs.highlight(example.code, {
+      language: "typescript",
+    }).value
+  }
+</code>
+</pre>
+</div>
+</div>
+    `)
+    .join("")
+   
+}
+
 
 /* if (cardTitle) {
     cardTitle.textContent = basicTypesExample().title;

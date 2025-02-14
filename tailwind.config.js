@@ -8,10 +8,12 @@ export default {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['"Montserrat"', 'sans-serif']
+    }
   },
   plugins: [
-    daisyui,
+      daisyui,
   ],
   daisyui: {
     themes: ["light", "dark", "dracula", "valentine", "garden","forest"],

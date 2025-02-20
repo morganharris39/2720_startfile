@@ -11,7 +11,7 @@ import {
     specialTypesNull,
     specialTypesNever,
     specialTypesUnknown, 
-} from '../examplesBasicTypes/examples';
+} from '../examples/basicTypes/examples';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
 

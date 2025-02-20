@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="valentine">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="../styles/vs2015.css" />
+    <script src="index.ts" defer type="module"></script>
+    <title>TypeScript Function Types</title>
+</head>
+<body>
+  <header class="navbar bg-base-300">
+    <div class="flex-1">
+        <a class="btn btn-ghost text-xl" href="../index.html">TypeScript</a>
+      </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="../basicTypes/index.html">Basic Types</a></li>
+          <li><a href="../functionTypes/index.html">Function Types</a></li>
+        </ul>
+      </div>
+</header>
+  <main class="flex flex-col h-screen justify-center items-center">
+    <h1 class="text-4xl m-4 rounded-lg p-4 ">TypeScript Function Types</h1>
+    <div class="carousel mx-4">
+        <div id="slide1" class="carousel-item relative w-full">
+          <div id="examplesContainer" class="w-full h-full card bg-base-100 overflow-auto">
+            <div class="card-body flex-grow-0">
+              <h2 class="card-title">Example title goes here</h2>
+              <p>Example explanation</p>
+              <div>
+              <pre class="bg-slate-900 text-slate-200 px-4 rounded-md">
+              <code class="text-wrap">
+                function greetUser(name: string, age?: number): string {
+                if (age) {
+                    return "Hello " + name + ", you are " + age + " years old."
+                } else {
+                    return "Hello " + name
+                }
+            }
+              </code>
+              </pre>
+              </div>
+              </div>
+          </div>
+          <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+            <a id="leftNavButton" href="#" class="btn btn-circle">❮</a>
+            <a id="rightNavButton" href="#" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+      </div>
+  </main>
+  <footer class="footer footer-center bg-base-300 text-base-content p-4">
+    <aside>
+        <p>&copy; <a href="https://github.com/morganharris39">Morgan Harris</a> &bull; 2025</p>
+    </aside>
+</footer>
+</body>
+</html>

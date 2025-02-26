@@ -7,12 +7,14 @@ const outDir = resolve(__dirname, 'dist')
 export default defineConfig({
     root,
     build: {
-        outDir,
+        outDir: 'dist',
+        copyPublicDir: true,
         emptyOutDir: true,
         rollupOptions: {
             input: {
                 main: resolve(root, 'index.html'),
                 basicTypes: resolve(root, 'basicTypes', 'index.html'),
+                functionTypes: resolve(root, 'functionTypes', 'index.html')
                 //nested: resolve(root, 'nested/index.html'),
             },
         },

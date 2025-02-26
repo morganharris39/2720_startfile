@@ -96,21 +96,3 @@ function loadExamples (examples: any[]) {
     .join("")
    
 }
-
-
-/* if (cardTitle) {
-    cardTitle.textContent = basicTypesExample().title;
-}
-
-if (cardExplanation) {
-    cardExplanation.textContent = basicTypesExample().explanation;
-}
-
-if (cardCode) {
-    //cardCode.textContent = basicTypesExample().code;
-
-    cardCode.innerHTML = hljs.highlight(
-        basicTypesExample().code,
-        { language: 'typescript' }
-    ).value;
-} */

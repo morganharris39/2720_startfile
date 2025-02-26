@@ -1,9 +1,9 @@
-import hljs from 'highlight.js/lib/core'
-import typescript from 'highlight.js/lib/languages/typescript'
 import type { CodeExample } from '../types/CodeExample'
+import hljs from 'highlight.js/lib/core';
+import typescript from 'highlight.js/lib/languages/typescript';
 
 // Then register the languages you need
-hljs.registerLanguage('typescript', typescript)
+hljs.registerLanguage('typescript', typescript);
 
 // Be able to load many examples passed in as an array
 export function loadExamples(examples: any[]) {
@@ -20,11 +20,11 @@ export function loadExamples(examples: any[]) {
       <div class="card-body flex-grow-0">
   <h2 class="card-title">${example.title}</h2>
   <p>${example.explanation}</p>
-  <div>
-  <pre class="bg-slate-900 text-slate-200 px-4 rounded-md">
+  <div class="mockup-code bg-slate-800">
+  <pre class="ml-4">
   <code class="text-wrap">${
     hljs.highlight(example.code, {
-      language: 'typescript',
+      language: "typescript",
     }).value
   }
   </code>
@@ -50,11 +50,11 @@ export function loadExample(example: CodeExample) {
       <div class="card-body flex-grow-0">
   <h2 class="card-title">${example.title}</h2>
   <p>${example.explanation}</p>
-  <div>
-  <pre class="bg-slate-900 text-slate-200 px-4 rounded-md">
+  <div class="mockup-code bg-slate-800">
+  <pre class="ml-4">
   <code class="text-wrap">${
     hljs.highlight(example.code, {
-      language: 'typescript',
+      language: "typescript",
     }).value
   }
   </code>

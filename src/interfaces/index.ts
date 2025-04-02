@@ -1,4 +1,5 @@
 import curriculum from '../data/curriculum.json'
+import { CodeSnippet } from '../types/CodeSnippet'
 
 const blocks = curriculum["responsive-web-design"].blocks
 
@@ -12,6 +13,10 @@ const { meta, challenges } = basicCSS
 
 const navBarCenter = document.querySelector(".navbar #navBarCenter")
 const navList = document.querySelector("#navList")
+const snippetDisplay = document.querySelector("#snippetDisplay")
+
+// Add these classes to snippetDisplay in your initialization code
+snippetDisplay?.classList.add('overflow-auto', 'h-[calc(100vh-12rem)]');
 
 const buildTopNavFromJSON = (blocksArray: any) => {
   blocksArray.forEach((block: any) => {
@@ -34,17 +39,136 @@ const buildTopNavFromJSON = (blocksArray: any) => {
 }
 
 const buildLeftNavFromJSON = (block: any) => {
-  //console.log(block.challenges)
+  // empty the left nav before adding new items
+  while (navList?.firstChild) {
+    navList.removeChild(navList.firstChild);
+  }
+  
   block.challenges.forEach((challenge: any) => {
-    const listItem = document.createElement("li")
-    console.log(challenge.title)
-    listItem.textContent = challenge.title
-    listItem.classList.add("btn", "btn-ghost", "list-row")
-    navList?.appendChild(listItem)
-  })
+    const listItem = document.createElement("li");
+    //console.log(challenge.title);
+    listItem.classList.add("list-row", "text-center", "w-full", "flex", "items-center");
+    
+    const listDiv = document.createElement("div");
+    listDiv.classList.add("btn", "btn-ghost", "h-24", "p-1", "w-full");
+    listDiv.textContent = challenge.title;
+
+    listDiv.addEventListener("click", () => {
+      // Remove active class from all other items
+      document.querySelectorAll('#navList li div').forEach(item => {
+        item.classList.remove('active', 'bg-primary/10', 'border-primary');
+      });
+      
+      // Add active class to clicked item
+      listDiv.classList.add('active', 'bg-primary/10', 'border-primary');
+      
+      // Build the snippet display
+      buildSnippetDisplay(challenge);
+      
+      // Align the snippet with the clicked nav item
+      alignSnippetWithNavItem();
+    });
+
+    listItem.appendChild(listDiv);
+    navList?.appendChild(listItem);
+  });
+}
+
+// Function to align snippet with clicked nav item
+const alignSnippetWithNavItem = () => {
+  document.documentElement.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  }); // For Chrome, Firefox, IE, Opera
+
+  document.body.scrollTop = 0; // For Safari
+};
+
+const buildSnippetDisplay = (challenge: CodeSnippet) => {
+  // Clear existing content
+  while (snippetDisplay?.firstChild) {
+    snippetDisplay.removeChild(snippetDisplay.firstChild);
+  }
+
+  // Create card container
+  const card = document.createElement('div');
+  card.classList.add('card', 'bg-base-100', 'shadow-xl', 'm-4', 'overflow-auto', 
+    'max-h-[calc(100vh-12rem)]', 'transition-all', 'duration-300');
+
+  // Create card body
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body');
+
+  // Header section with title
+  const header = document.createElement('div');
+  header.classList.add('border-b', 'border-base-300', 'pb-4', 'mb-4');
+
+  const title = document.createElement('h2');
+  title.textContent = challenge.title;
+  title.classList.add('card-title', 'text-2xl', 'font-bold', 'text-center', 'mx-auto');
+
+  // Create badge for challenge type
+  const badge = document.createElement('div');
+  badge.classList.add('badge', 'badge-primary', 'badge-lg', 'mx-auto', 'mt-2');
+  badge.textContent = 'Interface Challenge';
+
+  header.appendChild(title);
+  header.appendChild(badge);
+
+  // Description section
+  const descriptionContainer = document.createElement('div');
+  descriptionContainer.classList.add('prose', 'max-w-none', 'mb-6');
+  
+  const descTitle = document.createElement('h3');
+  descTitle.textContent = 'Description';
+  descTitle.classList.add('text-xl', 'font-semibold', 'mb-2');
+  
+  const description = document.createElement('div');
+  description.innerHTML = challenge.description as string;
+  description.classList.add('text-base-content/80');
+  
+  descriptionContainer.appendChild(descTitle);
+  descriptionContainer.appendChild(description);
+
+  // Instructions section
+  const instructionsContainer = document.createElement('div');
+  instructionsContainer.classList.add('alert', 'bg-base-200', 'shadow-lg');
+  
+  const instructionsIcon = document.createElement('div');
+  instructionsIcon.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+  `;
+  
+  const instructionsContent = document.createElement('div');
+  
+  const instructionsTitle = document.createElement('h3');
+  instructionsTitle.textContent = 'Instructions';
+  instructionsTitle.classList.add('font-bold', 'text-lg');
+  
+  const instructions = document.createElement('div');
+  instructions.innerHTML = challenge.instructions as string;
+  instructions.classList.add('mt-2');
+  
+  instructionsContent.appendChild(instructionsTitle);
+  instructionsContent.appendChild(instructions);
+  
+  instructionsContainer.appendChild(instructionsIcon);
+  instructionsContainer.appendChild(instructionsContent);
+
+  // Assemble the components
+  cardBody.appendChild(header);
+  cardBody.appendChild(descriptionContainer);
+  cardBody.appendChild(instructionsContainer);
+  card.appendChild(cardBody);
+  snippetDisplay?.appendChild(card);
 }
 
 buildTopNavFromJSON(blocksObj)
+
+// for testing purposes only, load the first block
+buildLeftNavFromJSON(basicCSS)
 
 
 

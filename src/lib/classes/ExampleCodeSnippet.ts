@@ -12,17 +12,22 @@ hljs.registerLanguage('typescript', typescript);
  * @param code - The actual code snippet.
  */
 
+// exports the different elements
+
 export class ExampleCodeSnippet implements CodeExample {
   constructor(
     public title: string,
     public explanation: string,
     public code: string
   ) {}
+
+
+
   renderCodeSnippet(): string {
 
     return `
       <div class="space-y-4">
-        <h3 class="text-2xl font-bold text-white bg-gradient-to-r from-pink-400 to-pink-600 rounded-lg p-3 text-center shadow-lg">
+        <h3 class="text-2xl font-bold text-white bg-base-content rounded-lg p-3 text-center shadow-lg">
           ${this.title}
         </h3>
 

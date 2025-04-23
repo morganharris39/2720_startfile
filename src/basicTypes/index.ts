@@ -78,9 +78,9 @@ function loadExamples (examples: any[]) {
     }
 
     container.innerHTML = examples.map((example) => `
-<div class="card-body flex-grow-0">
-<h2 id="cardTitle" class="text-2xl mb-4 font-semibold">${example.title}</h2>
-<p id="cardExplanation" class="mb-4">${example.explanation}</p>
+<div class="card-body flex-grow-0 m-10 bg-base-200 shadow-xl rounded-2xl">
+<h2 id="cardTitle" class="text-3xl mb-4 font-bold text-center">${example.title}</h2>
+<p id="cardExplanation" class="mb-4 w-250">${example.explanation}</p>
 <div class="mockup-code bg-slate-800">
 <pre class="ml-4">
 <code id="cardCode">${

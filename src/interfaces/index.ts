@@ -47,10 +47,10 @@ const buildLeftNavFromJSON = (block: any) => {
   block.challenges.forEach((challenge: any) => {
     const listItem = document.createElement("li");
     //console.log(challenge.title);
-    listItem.classList.add("list-row", "text-center", "w-full", "flex", "items-center");
+    listItem.classList.add("list-row", "text-center", "flex", "items-center", "menu", "text-center",);
     
     const listDiv = document.createElement("div");
-    listDiv.classList.add("btn", "btn-ghost", "h-24", "p-1", "w-full");
+    listDiv.classList.add("px-10", "py-6", "w-full", "text-center", "flex", "font-medium");
     listDiv.textContent = challenge.title;
 
     listDiv.addEventListener("click", () => {

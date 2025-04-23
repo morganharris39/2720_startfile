@@ -11,7 +11,9 @@
 <body class="flex flex-col h-screen">
     <header class="navbar bg-base-300">
         <div class="flex-1">
-            <a class="btn btn-ghost text-xl" href="/index.html">TypeScript</a>
+            <a href="/index.html">
+                <button class="btn bg-base-300 border-0 text-xl font-bold">TypeScript</button>
+            </a>
           </div>
           <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
@@ -23,20 +25,20 @@
         </div>
     </header>
     <main class="flex h-full">
-        <nav class="h-full w-70">
-            <ul class="menu bg-base-200 w-56 h-full">
-                <li>
-                    <button id="basicTypesButton" class="font-medium">Basic Types</button>
+        <nav class="h-full w-72 shrink-0 bg-base-200 p-1 menu">
+            <ul class="list flex flex-col items-center">
+                <li class="list-row text-center flex">
+                    <button id="basicTypesButton" class="font-medium px-20 py-6">Basic Types</button>
                 </li>
-                <li>
-                    <button id="arrayTypesButton" class="font-medium">Array Types</button>
+                <li class="list-row text-center flex">
+                    <button id="arrayTypesButton" class="font-medium px-20 py-6">Array Types</button>
                 </li>
-                <li>
-                    <button id="specialTypesButton" class="font-medium">Special Types</button>
+                <li class="list-row text-center flex">
+                    <button id="specialTypesButton" class="font-medium px-20 py-6">Special Types</button>
                 </li>
             </ul>
         </nav>
-        <div id="examplesContainer" class=" w-full h-full overflow-auto"></div>
+        <div id="examplesContainer" class=" w-full h-full overflow-auto flex flex-col items-center"></div>
     </main>
     <footer class="footer footer-center bg-base-300 text-base-content p-4 ">
         <aside>

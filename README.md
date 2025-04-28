@@ -1,65 +1,36 @@
-# 2720 Site on Netlify
-
-https://dwdd2720-morganh.netlify.app/
-
 # TypeScript Learning Guide
 
 An interactive guide to TypeScript fundamentals featuring animated transitions and practical examples. This project covers core TypeScript concepts through visual, hands-on learning.
 
-## Features
+## Website
+https://dwdd2720-morganh.netlify.app/
 
-- **Basic Types**: Understanding fundamental TypeScript types including numbers, strings, and more
-- **Function Types**: Exploring function declarations, parameters, and return types
-- **Interfaces**: Learning object structure definition and type checking
-- **Classes**: Deep dive into object-oriented programming concepts including:
-  - Basic Classes
-  - Abstract Classes
-  - Inheritance
-  - Polymorphism
-  - Encapsulation
+## Page Contents
 
-## Technologies Used
+### Basic Types
+- Number and string type declarations
+- Array types and tuple structures
+- Special types like any, unknown, and never
+- Type inference and type assertions
+- Detailed examples with practical use cases
 
-- TypeScript
-- HTML5
-- TailwindCSS
-- DaisyUI
-- Modern CSS Features (animations, transitions)
+### Function Types
+- Function declarations and expressions
+- Parameter typing and return type annotations
+- Optional and default parameters
+- Function overloads and generics
+- Arrow functions and type inference
 
-## Project Structure
+### Interfaces
+- Object type definitions
+- Optional and readonly properties
+- Interface extension and implementation
+- Function types in interfaces
+- Index signatures and hybrid types
 
-```
-src/
-├── basicTypes/
-├── functionTypes/
-├── interfaces/
-├── classes/
-├── images/
-└── styles/
-```
-
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies:
-```bash
-npm install
-```
-3. Start the development server:
-```bash
-npm run dev
-```
-
-## Contributing
-
-Feel free to submit issues and enhancement requests.
-
-## License
-
-[MIT License](LICENSE)
-
-## Contact
-
-Morgan Harris
-- GitHub: [@morganharris39](https://github.com/morganharris39)
-- LinkedIn: [Morgan Harris](https://www.linkedin.com/in/morgan-harris-0a2116247/)
+### Classes
+- Basic class structure and instantiation
+- Abstract classes and methods
+- Inheritance and method overriding
+- Polymorphism with class hierarchies
+- Encapsulation using access modifiers

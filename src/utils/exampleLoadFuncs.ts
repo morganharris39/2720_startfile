@@ -18,7 +18,7 @@ export function loadExamples(examples: any[]) {
     .map(
       (example) => `
       <div class="card-body flex-grow-0">
-  <h2 class="card-title">${example.title}</h2>
+  <h2 class="card-title text-2xl mb-2 font-medium">${example.title}</h2>
   <p>${example.explanation}</p>
   <div class="mockup-code bg-slate-800">
   <pre class="ml-4">
@@ -48,7 +48,7 @@ export function loadExample(example: CodeExample) {
 
   container.innerHTML = `
       <div class="card-body flex-grow-0">
-  <h2 class="card-title">${example.title}</h2>
+  <h2 class="card-title text-2xl mb-2 font-medium">${example.title}</h2>
   <p>${example.explanation}</p>
   <div class="mockup-code bg-slate-800">
   <pre class="ml-4">

@@ -92,8 +92,8 @@ const buildSnippetDisplay = (challenge: CodeSnippet) => {
 
   // Create card container
   const card = document.createElement('div');
-  card.classList.add('card', 'bg-base-100', 'shadow-xl', 'm-4', 'overflow-auto', 
-    'max-h-[calc(100vh-12rem)]', 'transition-all', 'duration-300');
+  card.classList.add('card', 'bg-base-100', 'shadow-xl', 'm-10', 'overflow-auto', 
+    'max-h-[calc(100vh-12rem)]', 'transition-all', 'duration-300', 'max-w-6xl');
 
   // Create card body
   const cardBody = document.createElement('div');

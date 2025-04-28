@@ -51,9 +51,9 @@ const updateDotIndicators = () => {
   dots.forEach((dot, index) => {
     if (index === exampleCounter) {
       dot.classList.remove('bg-gray-400')
-      dot.classList.add('bg-primary')
+      dot.classList.add('bg-neutral')
     } else {
-      dot.classList.remove('bg-primary')
+      dot.classList.remove('bg-neutral')
       dot.classList.add('bg-gray-400')
     }
   })

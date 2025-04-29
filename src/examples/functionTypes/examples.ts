@@ -32,7 +32,7 @@ function sum(...numbers: number[]): number {
 
   export function functionReturnTypesOne() {
     return {
-      title: "Function Return Types (1) in TypeScript",
+      title: "Function Return Types in TypeScript",
       explanation: "Function return types in TypeScript define the expected output type of a function, creating clear contracts for function behavior. While TypeScript can often infer return types automatically, explicit return type declarations serve as self-documenting code and help catch type-related errors during development. TypeScript supports various basic return types including string, number, boolean, and void, with the same type system applying to both traditional and arrow functions. This type checking ensures consistent function output and improves code reliability.",
       code: `
 function functionName(params): returnType {
@@ -64,7 +64,7 @@ const logMessageArrow = (msg: string): void => console.log(msg)`
 
 export function functionReturnTypesTwo() {
     return {
-      title: "Function Return Types (2) in TypeScript",
+      title: "Advanced Return Types in TypeScript",
       explanation: "Advanced return types in TypeScript allow functions to handle complex output patterns through union types, arrays, and Promises. Union return types enable functions to return different types based on conditions, while Promise return types handle asynchronous operations with type safety. The TypeScript compiler ensures all code paths return compatible types, preventing inconsistent return values and enhancing code reliability. These advanced typing features help create more maintainable code by catching potential issues during development.",
       code: `
 // Array return type

@@ -88,12 +88,24 @@ const buildSnippetDisplay = (challenge: CodeSnippet) => {
   // Clear existing content
   while (snippetDisplay?.firstChild) {
     snippetDisplay.removeChild(snippetDisplay.firstChild);
+
+        // Create card container with vertical layout
+        const card = document.createElement('div');
+        card.classList.add(
+            'card',
+            'bg-base-100',
+            'shadow-xl',
+            'my-4',
+            'w-full',
+            'max-w-4xl',
+            'overflow-visible'
+        );
   }
 
   // Create card container
   const card = document.createElement('div');
-  card.classList.add('card', 'bg-base-100', 'shadow-xl', 'm-10', 'overflow-auto', 
-    'max-h-[calc(100vh-12rem)]', 'transition-all', 'duration-300', 'max-w-6xl');
+  card.classList.add('card', 'bg-base-200', 'shadow-xl', 'm-10', 'overflow-auto', 
+    'max-h-[calc(100vh-12rem)]', 'transition-all', 'duration-300', 'max-w-6xl', 'my-auto');
 
   // Create card body
   const cardBody = document.createElement('div');
@@ -105,7 +117,7 @@ const buildSnippetDisplay = (challenge: CodeSnippet) => {
 
   const title = document.createElement('h2');
   title.textContent = challenge.title;
-  title.classList.add('card-title', 'text-2xl', 'font-bold', 'text-center', 'mx-auto');
+  title.classList.add('card-title', 'text-4xl', 'font-bold', 'mx-auto', 'mb-6');
 
   // Create badge for challenge type
   const badge = document.createElement('div');
@@ -121,7 +133,7 @@ const buildSnippetDisplay = (challenge: CodeSnippet) => {
   
   const descTitle = document.createElement('h3');
   descTitle.textContent = 'Description';
-  descTitle.classList.add('text-xl', 'font-semibold', 'mb-2');
+  descTitle.classList.add('text-2xl', 'font-semibold', 'mb-2');
   
   const description = document.createElement('div');
   description.innerHTML = challenge.description as string;
@@ -132,11 +144,11 @@ const buildSnippetDisplay = (challenge: CodeSnippet) => {
 
   // Instructions section
   const instructionsContainer = document.createElement('div');
-  instructionsContainer.classList.add('alert', 'bg-base-200', 'shadow-lg');
+  instructionsContainer.classList.add('alert', 'bg-base-300', 'shadow-lg', 'border-0');
   
   const instructionsIcon = document.createElement('div');
   instructionsIcon.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info-content flex-shrink-0 w-6 h-6">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
     </svg>
   `;
@@ -145,7 +157,7 @@ const buildSnippetDisplay = (challenge: CodeSnippet) => {
   
   const instructionsTitle = document.createElement('h3');
   instructionsTitle.textContent = 'Instructions';
-  instructionsTitle.classList.add('font-bold', 'text-lg');
+  instructionsTitle.classList.add('font-bold', 'text-xl');
   
   const instructions = document.createElement('div');
   instructions.innerHTML = challenge.instructions as string;
